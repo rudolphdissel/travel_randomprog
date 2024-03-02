@@ -1,13 +1,20 @@
+from extract import extract_travel
 import random
 import time
 transport=["차","대중교통"]
+result=extract_travel() 
+print("도시 지역 업데이트가 완료 되었습니다...")
+
 
 #여행지 결정 함수
-def choices():
-    print("여행지 선정 프로그램을 실행해 주셔서 감사합니다.")
+def choices(result):
+    print("여행지 선정 프로그램이 시작됩니다.")
+    '''
+    수동모드
     print("여행 후보지를 띄어쓰기로 구분해서 입력해 주세요")
     huboji = list(input().split())
-    place_pick=random.choice(huboji)
+    '''
+    place_pick=random.choice(result)
     print(f"축하합니다. {place_pick} 지역이 당첨되었습니다.")
     return place_pick
 
@@ -22,7 +29,7 @@ def transport_choice():
     print(f"축하드립니다. {place_to_go}을 가되, {random.choice(transport)}를 이용하시면 됩니다")
 
 #실행부
-place_to_go=choices()
+place_to_go=choices(result)
 while True:
     print("다음은 이동수단 결정입니다. 이동 수단은 차와 버스 중 하나입니다.")
     print("확인하시겠습니까?(y/n)")
@@ -31,7 +38,6 @@ while True:
         transport_choice()
         break
 
-    
 
 #반복 시켜주는 코드.
 '''
